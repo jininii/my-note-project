@@ -30,10 +30,13 @@ const List = ({ note }) => {
   const navigate = useNavigate();
   const [text, setText] = useState('');
   const [filteredNote, setFilteredNote] = useState(note);
+  const [searched, setSearched] = useState(false);
+
   const handleSearch = () => {
     setFilteredNote(
       note.filter(noteItem => {
         if (noteItem.title.toLowerCase().match(text.toLocaleLowerCase())) {
+          setSearched(true);
           return noteItem;
         }
       }),
@@ -50,12 +53,15 @@ const List = ({ note }) => {
     <section>
       <SearchBar value={text} onChange={handleChange} placeholder="검색" />
       <ListSection>
-        {filteredNote.length === 0 && (
-          <EmptyNote>다른 검색어를 입력하세요.</EmptyNote>
+        {filteredNote.length > 0 ? (
+          <>
+            {filteredNote.map(noteItem => (
+              <NoteList key={noteItem.id} note={noteItem} />
+            ))}
+          </>
+        ) : (
+          searched && <EmptyNote>다른 검색어를 입력하세요.</EmptyNote>
         )}
-        {filteredNote.map(noteItem => (
-          <NoteList key={noteItem.id} note={noteItem} />
-        ))}
       </ListSection>
       <ButtonSection>
         <Button $primary onClick={() => navigate(`/create`)}>
