@@ -33,7 +33,7 @@ const App = () => {
   }, [note]);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Container>
         <Title />
         <Content>
