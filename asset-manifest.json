@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/my-note-project/static/js/main.3df0cff3.js",
+    "main.js": "/my-note-project/static/js/main.376104e3.js",
     "index.html": "/my-note-project/index.html",
-    "main.3df0cff3.js.map": "/my-note-project/static/js/main.3df0cff3.js.map"
+    "main.376104e3.js.map": "/my-note-project/static/js/main.376104e3.js.map"
   },
   "entrypoints": [
-    "static/js/main.3df0cff3.js"
+    "static/js/main.376104e3.js"
   ]
 }
